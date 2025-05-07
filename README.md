@@ -1,1 +1,1 @@
-# Projet-MLOps-Classification-Text
+# mlops-fakenews-text-classification

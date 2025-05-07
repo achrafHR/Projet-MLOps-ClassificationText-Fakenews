@@ -1,0 +1,2 @@
+- J'ai utilisé un logger sous forme d'un fichier __init__.py dans fakeNewsClassifier, selon cps, logger doit etre sous forme de decorateur.
+- vérifier si je dois implementer fonction read_csv dans common.py 

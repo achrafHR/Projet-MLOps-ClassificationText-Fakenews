@@ -1,0 +1,20 @@
+pandas 
+gdown
+dvc
+mlflow==2.22.0
+notebook
+numpy
+matplotlib
+seaborn
+python-box
+pyYAML
+tqdm
+ensure
+joblib
+types-PyYAML
+scipy
+Flask
+Flask-Cors
+fastapi
+scikit-learn
+-e .

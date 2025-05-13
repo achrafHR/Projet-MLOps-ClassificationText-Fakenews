@@ -11,6 +11,19 @@ from typing import Any
 import base64
 
 
+import re
+import string
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
+# Download necessary NLTK resources (run once)
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+
+
+
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
@@ -85,7 +98,7 @@ def load_json(path: Path) -> ConfigBox:
     return ConfigBox(content)
 
 
-@ensure_annotations
+
 def save_bin(data: Any, path: Path):
     """save binary file
 
@@ -94,11 +107,11 @@ def save_bin(data: Any, path: Path):
         path (Path): path to binary file
     """
     joblib.dump(value=data, filename=path)
-    logger.info(f"binary file saved at: {path}")
+    logger.info(f"File saved at: {path}")
 
 
 @ensure_annotations
-def load_bin(path: Path) -> Any:
+def load_bin(path: Path) -> object:
     """load binary data
 
     Args:
@@ -124,6 +137,42 @@ def get_size(path: Path) -> str:
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
 
+
+
+def clean_text(text):
+
+    stop_words = set(stopwords.words('english'))
+    lemmatizer = WordNetLemmatizer()
+
+    # Initialize resources
+    stop_words = set(stopwords.words('english'))
+    lemmatizer = WordNetLemmatizer()
+    """
+    Comprehensive text cleaning function combining multiple preprocessing techniques.
+    """
+    # Convert to string and lowercase
+    text = str(text).lower()
+        
+    # Remove special text patterns
+    text = re.sub(r'\[.*?\]', '', text)        # Remove text in square brackets
+    text = re.sub(r'https?://\S+|www\.\S+', '', text)  # Remove URLs
+    text = re.sub(r'<.*?>+', '', text)         # Remove HTML tags
+        
+    # Remove numbers and words containing numbers
+    text = re.sub(r'\w*\d\w*', '', text)       # Remove words containing digits
+    text = re.sub(r'\d+', '', text)            # Remove standalone digits
+        
+    # Remove punctuation
+    text = text.translate(str.maketrans('', '', string.punctuation))
+        
+    # Normalize whitespace
+    text = re.sub(r'\n', ' ', text)            # Replace newlines with spaces
+    text = re.sub(r'\s+', ' ', text).strip()   # Normalize spacing
+        
+    # Lemmatize and remove stopwords
+    text = ' '.join([lemmatizer.lemmatize(word) for word in text.split() if word not in stop_words])
+        
+    return text
 
 """
 import pandas as pd

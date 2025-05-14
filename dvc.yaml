@@ -1,0 +1,66 @@
+stages:
+  data_ingestion:
+    cmd: python src/fakeNewsClassifier/pipeline/stage_01_data_ingestion.py
+    deps:
+      - src/fakeNewsClassifier/pipeline/stage_01_data_ingestion.py
+      - config/config.yaml
+    outs:
+      - artifacts/data_ingestion/Fake.csv
+      - artifacts/data_ingestion/True.csv
+
+
+  data_preprocessing:
+    cmd: python src/fakeNewsClassifier/pipeline/stage_02_data_preprocessing.py
+    deps:
+      - src/fakeNewsClassifier/pipeline/stage_02_data_preprocessing.py
+      - config/config.yaml
+    params:
+      - test_size
+      - random_state
+      - stratify
+    outs:
+      - artifacts/data_preprocessing/X_train_tfidf.pkl
+      - artifacts/data_preprocessing/y_train.pkl
+      - artifacts/data_preprocessing/X_test_tfidf.pkl
+      - artifacts/data_preprocessing/y_test.pkl
+      - artifacts/data_preprocessing/tfidf_vectoriser.pkl
+
+
+  prepare_base_model:
+    cmd: python src/fakeNewsClassifier/pipeline/stage_03_prepare_base_model.py
+    deps:
+      - src/fakeNewsClassifier/pipeline/stage_03_prepare_base_model.py
+      - config/config.yaml
+    params:
+      - C
+      - penalty
+      - solver
+      - max_iter
+      - class_weight
+    outs:
+      - artifacts/prepare_base_model
+
+
+  training:
+    cmd: python src/fakeNewsClassifier/pipeline/stage_04_model_trainer.py
+    deps:
+      - src/fakeNewsClassifier/pipeline/stage_04_model_trainer.py
+      - config/config.yaml
+      - artifacts/data_preprocessing/X_train_tfidf.pkl
+      - artifacts/data_preprocessing/y_train.pkl
+      - artifacts/prepare_base_model
+    outs:
+      - artifacts/training/trained_model.pkl
+
+
+  evaluation:
+    cmd: python src/fakeNewsClassifier/pipeline/stage_05_model_evaluation.py
+    deps:
+      - src/fakeNewsClassifier/pipeline/stage_05_model_evaluation.py
+      - config/config.yaml
+      - artifacts/data_preprocessing/X_test_tfidf.pkl
+      - artifacts/data_preprocessing/y_test.pkl
+      - artifacts/training/trained_model.pkl
+    metrics:
+    - scores.json:
+        cache: false

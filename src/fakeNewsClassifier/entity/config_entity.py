@@ -45,3 +45,12 @@ class TrainingConfig:
     processed_x_test: Path
     processed_y_test: Path
     tfidf_vectoriser: Path
+
+
+@dataclass(frozen=True)
+class EvaluationConfig:
+    path_of_model: Path
+    processed_x_test: Path
+    processed_y_test: Path
+    mlflow_uri: str
+    params: dict

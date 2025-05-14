@@ -1,9 +1,10 @@
 from fakeNewsClassifier.constants import *
-from fakeNewsClassifier.utils.common import read_yaml, create_directories
+from fakeNewsClassifier.utils.common import read_yaml, create_directories, save_json
 from fakeNewsClassifier.entity.config_entity import (DataIngestionConfig,
                                                       DataPreprocessingConfig,
                                                       PrepareBaseModelConfig,
-                                                      TrainingConfig)
+                                                      TrainingConfig, 
+                                                      EvaluationConfig)
 
 
 class ConfigurationManager:
@@ -103,3 +104,17 @@ class ConfigurationManager:
 
         return training_config
       
+
+    def get_evaluation_config(self) -> EvaluationConfig:
+
+        model_params_keys = ["C", "penalty", "solver", "max_iter", "class_weight"]
+        model_params = {k: self.params[k] for k in model_params_keys if k in self.params}
+
+        eval_config = EvaluationConfig(
+            path_of_model=Path("artifacts/training/trained_model.pkl"),
+            processed_x_test=Path("artifacts/data_preprocessing/X_test_tfidf.pkl"),
+            processed_y_test=Path("artifacts/data_preprocessing/y_test.pkl"),
+            mlflow_uri="https://dagshub.com/achrafHR/mlops-fakenews-text-classification.mlflow",
+            params=model_params,
+        )
+        return eval_config  

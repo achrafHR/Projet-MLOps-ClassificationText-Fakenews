@@ -3,7 +3,7 @@ from fakeNewsClassifier.components.data_ingestion import DataIngestion
 from fakeNewsClassifier import logger
 
 
-STAGE_NAME = "Data Ingestion Stage"
+STAGE_NAME = "Data Ingestion"
 
 
 class DataIngestionTrainingPipeline:

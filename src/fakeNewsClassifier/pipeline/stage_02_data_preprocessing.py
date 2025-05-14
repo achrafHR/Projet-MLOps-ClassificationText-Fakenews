@@ -2,7 +2,7 @@ from fakeNewsClassifier.config.configuration import ConfigurationManager
 from fakeNewsClassifier.components.data_preprocessing import DataPreprocessing
 from fakeNewsClassifier import logger
 
-STAGE_NAME = "Data Preprocessing Stage"
+STAGE_NAME = "Data Preprocessing"
 
 class DataPreprocessingTrainingPipeline:
     def __init__(self):

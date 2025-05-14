@@ -11,3 +11,26 @@
 7. Update the pipeline
 8. Update the main.py
 9. Update the dvc.yaml
+
+
+## MLflow
+
+##### cmd
+- mlflow ui
+
+### dagshub
+
+MLFLOW_TRACKING_URI=https://dagshub.com/achrafHR/mlops-fakenews-text-classification.mlflow
+MLFLOW_TRACKING_USERNAME=achrafHR
+MLFLOW_TRACKING_PASSWORD=1186be9494033fd5bc54deb4eb5754a45febe492
+python script.py
+
+Run this to export as env variables:
+
+```bash
+set MLFLOW_TRACKING_URI=https://dagshub.com/achrafHR/mlops-fakenews-text-classification.mlflow
+
+set MLFLOW_TRACKING_USERNAME=achrafHR
+
+set MLFLOW_TRACKING_PASSWORD=1186be9494033fd5bc54deb4eb5754a45febe492
+```

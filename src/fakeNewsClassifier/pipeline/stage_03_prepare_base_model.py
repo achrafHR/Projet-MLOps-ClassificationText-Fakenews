@@ -2,7 +2,7 @@ from fakeNewsClassifier.config.configuration import ConfigurationManager
 from fakeNewsClassifier.components.prepare_base_model import PrepareBaseModel
 from fakeNewsClassifier import logger
 
-STAGE_NAME = "Prepare Base Model Stage"
+STAGE_NAME = "Prepare Base Model"
 
 class PrepareBaseModelTrainingPipeline:
     def __init__(self):

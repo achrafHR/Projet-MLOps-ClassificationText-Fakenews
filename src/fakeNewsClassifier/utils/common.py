@@ -9,6 +9,8 @@ from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
+import time
+import functools
 
 
 import re
@@ -174,21 +176,51 @@ def clean_text(text):
         
     return text
 
-"""
-import pandas as pd
 
-@ensure_annotations
-def read_csv(path_to_csv: Path) -> pd.DataFrame:
-    # Reads a CSV file and returns a DataFrame
-    try:
-        df = pd.read_csv(path_to_csv)
-        logger.info(f"CSV file loaded from: {path_to_csv}")
-        return df
-    except Exception as e:
-        logger.error(f"Error loading CSV: {e}")
-        raise e
+def timer_decorator(stage_name=None):
+    """
+    Décorateur qui mesure le temps d'exécution d'une fonction ou d'une étape du pipeline.
+    Inclut automatiquement les messages de début et de fin de l'étape.
+    
+    Args:
+        stage_name (str, optional): Nom personnalisé pour l'étape du pipeline.
+            Si non fourni, utilise le nom de la fonction.
+            
+    Returns:
+        callable: Décorateur qui ajoute la mesure du temps d'exécution
+    """
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            # Déterminer le nom à afficher
+            display_name = stage_name if stage_name else func.__name__
+            
+            # Message de début
+            logger.info(f">>>>>> stage {display_name} started <<<<<<")
+            
+            # Mesure du temps d'exécution
+            start_time = time.time()
+            result = func(*args, **kwargs)
+            end_time = time.time()
+            execution_time = end_time - start_time
+            
+            # Message de fin avec temps d'exécution
+            logger.info(f"Pipeline stage '{display_name}' executed in {execution_time:.4f} seconds")
+            logger.info(f">>>>>> stage {display_name} completed <<<<<<\n\nx==========x")
+            
+            return result
+        return wrapper
+        
+    # Permet d'utiliser le décorateur avec ou sans arguments
+    # @timer_decorator ou @timer_decorator("Data Preprocessing")
+    if callable(stage_name):
+        func = stage_name
+        stage_name = None
+        return decorator(func)
+    
+    return decorator
 
-"""
+
 
 
 

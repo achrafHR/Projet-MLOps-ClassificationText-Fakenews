@@ -47,7 +47,7 @@ stages:
       size: 56051843
     - path: artifacts/data_preprocessing/tfidf_vectoriser.pkl
       hash: md5
-      md5: 138226ab8df216a19e64d81380f036c4
+      md5: 0f5bdb2e09b18525a6e54611b729b557
       size: 184730
     - path: artifacts/data_preprocessing/y_test.pkl
       hash: md5
@@ -57,10 +57,6 @@ stages:
       hash: md5
       md5: 11e02e3feffc7f59836f4e8c61e16b4e
       size: 1150176
-    - path: vectorizer/tfidf_vectoriser.pkl
-      hash: md5
-      md5: 138226ab8df216a19e64d81380f036c4
-      size: 184730
   prepare_base_model:
     cmd: python src/fakeNewsClassifier/pipeline/stage_03_prepare_base_model.py
     deps:
@@ -111,10 +107,6 @@ stages:
       size: 871
     outs:
     - path: artifacts/training/trained_model.pkl
-      hash: md5
-      md5: 297f524ec064908181186c5162fa6432
-      size: 40891
-    - path: model/trained_model.pkl
       hash: md5
       md5: 297f524ec064908181186c5162fa6432
       size: 40891

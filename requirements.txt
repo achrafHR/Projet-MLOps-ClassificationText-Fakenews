@@ -13,8 +13,9 @@ ensure
 joblib
 types-PyYAML
 scipy
-Flask
-Flask-Cors
 fastapi
+uvicorn
+jinja2
+python-multipart
 scikit-learn
 -e .

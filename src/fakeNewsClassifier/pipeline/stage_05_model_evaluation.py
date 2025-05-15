@@ -1,7 +1,7 @@
 from fakeNewsClassifier.config.configuration import ConfigurationManager
 from fakeNewsClassifier.components.model_evaluation_mlflow import Evaluation
 from fakeNewsClassifier import logger
-
+from fakeNewsClassifier.utils.common import timer_decorator 
 
 STAGE_NAME = "Evaluation stage"
 
@@ -9,6 +9,7 @@ class EvaluationPipeline:
     def __init__(self):
         pass
 
+    @timer_decorator(STAGE_NAME)
     def main(self):
         config = ConfigurationManager()
         eval_config = config.get_evaluation_config()
@@ -20,10 +21,8 @@ class EvaluationPipeline:
 
 if __name__ == '__main__':
     try:
-        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
         obj = EvaluationPipeline()
         obj.main()
-        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)
         raise e

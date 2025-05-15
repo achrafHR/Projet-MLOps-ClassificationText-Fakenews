@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Achraf/Desktop/MASTER/Python%20Avanc%C3%A9/Mini-Projet/mlops-fakenews-text-classification/mlruns/0/8a14a8b689ad4336a549367f843d0a9f/artifacts
+end_time: 1747322686658
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8a14a8b689ad4336a549367f843d0a9f
+run_name: marvelous-skink-790
+run_uuid: 8a14a8b689ad4336a549367f843d0a9f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747322677754
+status: 3
+tags: []
+user_id: Achraf

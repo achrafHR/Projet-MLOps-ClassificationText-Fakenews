@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Achraf/Desktop/MASTER/Python%20Avanc%C3%A9/Mini-Projet/mlops-fakenews-text-classification/mlruns/0/b241262360b54499988516197112d66c/artifacts
+end_time: 1747322964902
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b241262360b54499988516197112d66c
+run_name: awesome-stoat-782
+run_uuid: b241262360b54499988516197112d66c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747322955659
+status: 3
+tags: []
+user_id: Achraf

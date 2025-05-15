@@ -47,7 +47,7 @@ stages:
       size: 55966691
     - path: artifacts/data_preprocessing/tfidf_vectoriser.pkl
       hash: md5
-      md5: 571f36af620aa69afd0a9e036057c538
+      md5: c14c2eb86098f481cb4151132e9896de
       size: 184730
     - path: artifacts/data_preprocessing/y_test.pkl
       hash: md5
@@ -70,7 +70,7 @@ stages:
       size: 860
     params:
       params.yaml:
-        C: 0.6
+        C: 1.0
         class_weight: balanced
         max_iter: 1000
         penalty: l2
@@ -78,7 +78,7 @@ stages:
     outs:
     - path: artifacts/prepare_base_model
       hash: md5
-      md5: d0bec80ccb707e869416322cb2682ea8.dir
+      md5: 4a69609bb3cef5b5db45708b349a74df.dir
       size: 345
       nfiles: 1
   training:
@@ -94,7 +94,7 @@ stages:
       size: 1150176
     - path: artifacts/prepare_base_model
       hash: md5
-      md5: d0bec80ccb707e869416322cb2682ea8.dir
+      md5: 4a69609bb3cef5b5db45708b349a74df.dir
       size: 345
       nfiles: 1
     - path: config/config.yaml
@@ -108,7 +108,7 @@ stages:
     outs:
     - path: artifacts/training/trained_model.pkl
       hash: md5
-      md5: f4eea3cef0c3386bca3c70ac005e6c1e
+      md5: ae120d81d7a499f3f4055b5b426c5502
       size: 40891
   evaluation:
     cmd: python src/fakeNewsClassifier/pipeline/stage_05_model_evaluation.py
@@ -123,7 +123,7 @@ stages:
       size: 288160
     - path: artifacts/training/trained_model.pkl
       hash: md5
-      md5: f4eea3cef0c3386bca3c70ac005e6c1e
+      md5: ae120d81d7a499f3f4055b5b426c5502
       size: 40891
     - path: config/config.yaml
       hash: md5
@@ -136,5 +136,5 @@ stages:
     outs:
     - path: scores.json
       hash: md5
-      md5: f6e6fb6b27ae9bc4a7a12d2ee8857109
+      md5: d4d4c9eaf6cea1c07e909f40fe48bfb2
       size: 74

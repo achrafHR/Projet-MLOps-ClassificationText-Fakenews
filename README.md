@@ -32,5 +32,5 @@ set MLFLOW_TRACKING_URI=https://dagshub.com/achrafHR/mlops-fakenews-text-classif
 
 set MLFLOW_TRACKING_USERNAME=achrafHR
 
-set MLFLOW_TRACKING_PASSWORD=ad1fbb1078a58c4bfc663e0780d26ec6d22dabb7
+set MLFLOW_TRACKING_PASSWORD=bacab4ac32575fe66eb20be2982ee79711bb3b09
 ```

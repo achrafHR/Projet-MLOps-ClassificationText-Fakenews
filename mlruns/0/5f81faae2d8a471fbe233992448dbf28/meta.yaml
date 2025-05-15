@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Achraf/Desktop/MASTER/Python%20Avanc%C3%A9/Mini-Projet/mlops-fakenews-text-classification/mlruns/0/5f81faae2d8a471fbe233992448dbf28/artifacts
+end_time: 1747334165323
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5f81faae2d8a471fbe233992448dbf28
+run_name: bright-ape-533
+run_uuid: 5f81faae2d8a471fbe233992448dbf28
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747334157910
+status: 3
+tags: []
+user_id: Achraf

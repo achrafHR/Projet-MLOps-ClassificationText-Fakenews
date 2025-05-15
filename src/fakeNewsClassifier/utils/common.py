@@ -20,8 +20,8 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 # Download necessary NLTK resources (run once)
-nltk.download('stopwords')
-nltk.download('wordnet')
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
 
 
 

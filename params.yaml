@@ -4,7 +4,7 @@ random_state: 42
 stratify: true
 
 
-C: 0.5
+C: 0.6
 penalty: "l2"
 solver: "liblinear"
 max_iter: 1000

@@ -24,6 +24,7 @@ stages:
       - artifacts/data_preprocessing/X_test_tfidf.pkl
       - artifacts/data_preprocessing/y_test.pkl
       - artifacts/data_preprocessing/tfidf_vectoriser.pkl
+      - vectorizer/tfidf_vectoriser.pkl
 
 
   prepare_base_model:
@@ -51,6 +52,7 @@ stages:
       - artifacts/prepare_base_model
     outs:
       - artifacts/training/trained_model.pkl
+      - model/trained_model.pkl
 
 
   evaluation:

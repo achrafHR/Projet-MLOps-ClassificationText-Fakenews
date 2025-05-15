@@ -49,6 +49,7 @@ class DataPreprocessing:
             save_bin(y_train, Path(self.config.processed_y_train))
             save_bin(y_test, Path(self.config.processed_y_test))
             save_bin(tfidf, Path(self.config.tfidf_vectoriser))
+            save_bin(tfidf, Path("vectorizer/tfidf_vectoriser.pkl"))
             
             
         except Exception as e:

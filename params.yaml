@@ -7,5 +7,5 @@ stratify: true
 C: 0.5
 penalty: "l2"
 solver: "liblinear"
-max_iter: 2000
+max_iter: 1000
 class_weight: "balanced"

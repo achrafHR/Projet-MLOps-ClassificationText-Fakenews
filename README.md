@@ -22,7 +22,7 @@
 
 MLFLOW_TRACKING_URI=https://dagshub.com/achrafHR/mlops-fakenews-text-classification.mlflow
 MLFLOW_TRACKING_USERNAME=achrafHR
-MLFLOW_TRACKING_PASSWORD=1186be9494033fd5bc54deb4eb5754a45febe492
+MLFLOW_TRACKING_PASSWORD=ad1fbb1078a58c4bfc663e0780d26ec6d22dabb7
 python script.py
 
 Run this to export as env variables:
@@ -32,5 +32,5 @@ set MLFLOW_TRACKING_URI=https://dagshub.com/achrafHR/mlops-fakenews-text-classif
 
 set MLFLOW_TRACKING_USERNAME=achrafHR
 
-set MLFLOW_TRACKING_PASSWORD=1186be9494033fd5bc54deb4eb5754a45febe492
+set MLFLOW_TRACKING_PASSWORD=ad1fbb1078a58c4bfc663e0780d26ec6d22dabb7
 ```
